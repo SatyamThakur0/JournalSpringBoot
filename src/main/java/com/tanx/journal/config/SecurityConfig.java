@@ -61,7 +61,7 @@ public class SecurityConfig {
                         .requestMatchers(securedPaths).authenticated()
                         .requestMatchers(kafkaPaths).authenticated()
                         .requestMatchers(adminPaths).hasRole("ADMIN")
-                        .anyRequest().denyAll()
+                        .anyRequest().permitAll()
                 )
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

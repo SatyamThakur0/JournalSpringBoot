@@ -8,6 +8,7 @@ import com.tanx.journal.Security.JwtService;
 import com.tanx.journal.Services.QuotesApiService;
 import com.tanx.journal.Services.UserEntryService;
 import com.tanx.journal.pojo.QuoteRes;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("auth")
+@Tag(name = "Auth APIs", description = "login, signup") //For Swagger`
 @RequiredArgsConstructor
 @Slf4j
 public class AuthController {
@@ -49,6 +51,7 @@ public class AuthController {
             );
         }
         catch (AuthenticationException e){
+            log.info("yhi hua h");
             throw new RuntimeException("Invalid credentials");
         }
         CustomUserDetails userDetails = userEntryService.loadUserByUsername(request.getUsername());

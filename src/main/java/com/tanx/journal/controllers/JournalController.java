@@ -4,6 +4,7 @@ import com.tanx.journal.Entity.JournalEntry;
 import com.tanx.journal.Entity.UserEntry;
 import com.tanx.journal.Services.JournalEntryService;
 import com.tanx.journal.Services.UserEntryService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/journal")
+@Tag(name = "Journal APIs", description = "getAll, create")  // FOR SWAGGER
 public class JournalController {
 
     @Autowired
